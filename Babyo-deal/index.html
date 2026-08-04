@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Baby Osama × Tweetsie — Partnership Offer · Sept 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:    #060506;
+  --ink:      #0d0a0d;
+  --bone:     #ece7e2;
+  --bone-dim: #b9b2ac;
+  --red:      #e30f2e;
+  --red-glow: #ff2f4f;
+  --display:  "Anton", sans-serif;
+  --body:     "Oswald", sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--bone);font-family:var(--body);overflow-x:hidden}
+.accent{color:var(--red)}
+
+/* ── CODE GATE ── */
+.cgate{
+  position:fixed;inset:0;z-index:600;background:var(--black);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:40px 24px;
+  background-image:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(227,15,46,.1) 0%,transparent 70%);
+  transition:opacity .9s cubic-bezier(.4,0,1,1),visibility 0s linear .9s;
+}
+.cgate::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(255,255,255,.02) 0px,rgba(255,255,255,.02) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:overlay;
+}
+.cgate.out{opacity:0;visibility:hidden}
+.cgate__brand{
+  font-family:var(--display);font-size:16px;letter-spacing:.06em;
+  position:absolute;top:26px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+.cgate__kicker{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:24px}
+.cgate__title{
+  font-family:var(--display);
+  font-size:clamp(44px,12vw,110px);
+  line-height:.88;letter-spacing:.01em;margin-bottom:32px;
+}
+.cgate__divider{display:flex;align-items:center;gap:14px;margin:0 auto 32px;width:min(50%,220px)}
+.cgate__divider span{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(236,231,226,.35),transparent)}
+.cgate__divider i{color:var(--red);font-style:normal;font-size:12px}
+.cgate__form{width:min(420px,90vw)}
+.cgate__input{
+  width:100%;background:rgba(236,231,226,.04);
+  border:none;border-bottom:2px solid rgba(236,231,226,.2);
+  color:var(--bone);font-family:var(--display);
+  font-size:clamp(28px,6vw,44px);letter-spacing:.35em;
+  padding:14px 18px;outline:none;text-align:center;
+  transition:border-color .25s;-webkit-appearance:none;
+  text-transform:uppercase;caret-color:var(--red);
+}
+.cgate__input:focus{border-bottom-color:var(--red)}
+.cgate__input.shake{animation:gshake .5s ease}
+@keyframes gshake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-10px)}
+  40%{transform:translateX(10px)}
+  60%{transform:translateX(-8px)}
+  80%{transform:translateX(8px)}
+}
+.cgate__err{
+  font-family:var(--display);font-size:13px;letter-spacing:.3em;
+  color:var(--red);margin-top:10px;height:20px;opacity:0;transition:opacity .2s;
+}
+.cgate__err.show{opacity:1}
+.cgate__btn{
+  display:block;width:100%;margin-top:28px;
+  font-family:var(--display);font-size:clamp(14px,2.5vw,18px);letter-spacing:.25em;
+  padding:18px 40px;background:var(--red);color:var(--bone);
+  border:none;cursor:pointer;
+  transition:background .25s,transform .3s cubic-bezier(.16,1,.3,1);
+}
+.cgate__btn:hover{background:var(--red-glow);transform:translateY(-2px)}
+.cgate__sub{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(236,231,226,.25);margin-top:20px}
+
+/* ── REAL JAMMERZ PLAYER ── */
+.player-wrap{
+  padding:clamp(50px,8vw,90px) clamp(20px,6vw,80px);
+  background:var(--black);
+  border-bottom:1px solid rgba(236,231,226,.06);
+}
+.player{
+  max-width:820px;margin:0 auto;
+  background:var(--ink);border:1px solid rgba(236,231,226,.07);
+  padding:clamp(28px,4vw,48px);position:relative;overflow:hidden;
+}
+.player::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.player__badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red);color:var(--black);
+  font-family:var(--display);font-size:11px;letter-spacing:.28em;
+  padding:4px 14px;margin-bottom:28px;
+}
+.player__badge::before{
+  content:'●';font-size:8px;animation:reddot 1.2s ease-in-out infinite;
+}
+@keyframes reddot{0%,100%{opacity:1}50%{opacity:.2}}
+.player__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:32px}
+.player__song{font-family:var(--display);font-size:clamp(30px,6vw,56px);line-height:.9;letter-spacing:.01em;margin-bottom:8px}
+.player__meta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim)}
+.player__exclusive{
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  border:1px solid rgba(236,231,226,.15);padding:7px 14px;
+  color:var(--bone-dim);white-space:nowrap;align-self:flex-start;
+}
+/* Waveform */
+.player__wave{
+  display:flex;align-items:center;gap:2px;height:56px;margin-bottom:16px;cursor:pointer;
+}
+.wv{flex:1;background:rgba(227,15,46,.28);min-height:3px;border-radius:1px;transition:height .1s,background .1s}
+.wv.played{background:var(--red)}
+/* Progress */
+.player__prog{
+  height:3px;background:rgba(236,231,226,.1);
+  position:relative;cursor:pointer;margin-bottom:8px;
+}
+.player__prog:hover{height:5px;margin-bottom:6px;transition:height .1s,margin .1s}
+.player__fill{height:100%;background:var(--red);width:0%;position:relative;pointer-events:none}
+.player__fill::after{
+  content:'';position:absolute;right:-6px;top:50%;
+  transform:translateY(-50%);width:13px;height:13px;
+  background:var(--bone);border-radius:50%;
+  opacity:0;transition:opacity .2s;
+}
+.player__prog:hover .player__fill::after{opacity:1}
+.player__times{
+  display:flex;justify-content:space-between;
+  font-size:12px;color:var(--bone-dim);letter-spacing:.1em;margin-bottom:28px;
+}
+/* Controls */
+.player__controls{display:flex;align-items:center;justify-content:center;gap:24px}
+.player__play{
+  width:68px;height:68px;border-radius:50%;background:var(--red);
+  color:var(--bone);border:none;font-size:22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 0 24px rgba(227,15,46,.4);
+}
+.player__play:hover{background:var(--red-glow);transform:scale(1.08);box-shadow:0 0 40px rgba(227,15,46,.65)}
+.player__play.on{box-shadow:0 0 32px rgba(227,15,46,.55),0 0 70px rgba(227,15,46,.25);animation:playPulse 2s ease-in-out infinite}
+@keyframes playPulse{0%,100%{box-shadow:0 0 28px rgba(227,15,46,.5),0 0 60px rgba(227,15,46,.2)}50%{box-shadow:0 0 40px rgba(227,15,46,.7),0 0 90px rgba(227,15,46,.35)}}
+.player__no-file{
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(236,231,226,.2);text-align:center;margin-top:14px;
+}
+
+
+.grain{
+  position:fixed;inset:0;z-index:999;pointer-events:none;
+  opacity:0.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1s steps(4) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(-2%,1%)}
+  50%{transform:translate(1%,-2%)}
+  75%{transform:translate(-1%,2%)}
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:90px clamp(20px,6vw,64px) 70px;
+  position:relative;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(227,15,46,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(227,15,46,.06) 0%, transparent 50%),
+    var(--black);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.02) 0px,rgba(255,255,255,.02) 1px,
+    transparent 1px,transparent 3px
+  );
+  mix-blend-mode:overlay;
+}
+.hero__kicker{
+  font-size:11px;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--bone-dim);margin-bottom:28px;
+}
+.hero__names{
+  font-family:var(--display);
+  font-size:clamp(44px,10vw,110px);
+  line-height:.88;letter-spacing:.01em;
+}
+.hero__x{
+  display:block;font-family:var(--display);
+  font-size:clamp(28px,5vw,52px);color:var(--red);
+  margin:.18em 0;
+}
+.hero__divider{
+  display:flex;align-items:center;gap:14px;
+  margin:32px auto;width:min(56%,260px);
+}
+.hero__divider span{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(236,231,226,.4),transparent)}
+.hero__divider i{color:var(--red);font-style:normal;font-size:13px}
+.hero__fee-lbl{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:6px}
+.hero__fee{
+  font-family:var(--display);
+  font-size:clamp(80px,20vw,180px);
+  line-height:.82;color:var(--red);
+  text-shadow:0 0 100px rgba(227,15,46,.45);
+}
+.hero__fee-sub{
+  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bone-dim);margin-top:12px;
+}
+.hero__date{
+  font-family:var(--display);
+  font-size:clamp(20px,3.5vw,32px);
+  letter-spacing:.06em;margin-top:36px;
+}
+.hero__venue{
+  font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--bone-dim);margin-top:6px;
+}
+.hero__scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  color:var(--bone-dim);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+}
+.scroll-line{
+  width:1px;height:36px;background:rgba(236,231,226,.3);
+  position:relative;overflow:hidden;
+}
+.scroll-line::after{
+  content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;
+  background:var(--red);animation:spulse 1.8s ease-in-out infinite;
+}
+@keyframes spulse{0%{top:-100%}60%{top:100%}100%{top:100%}}
+
+/* ── MARQUEE ── */
+.marquee{background:var(--red);color:var(--black);overflow:hidden;padding:14px 0;white-space:nowrap}
+.marquee__track{
+  display:inline-flex;gap:28px;
+  font-family:var(--display);font-size:clamp(14px,2vw,20px);letter-spacing:.05em;
+  animation:marquee 22s linear infinite;
+}
+.marquee__track i{font-style:normal}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SHARED SECTION ── */
+.section{padding:clamp(64px,10vw,120px) clamp(20px,6vw,80px)}
+.section--alt{background:var(--ink)}
+.inner{max-width:820px;margin:0 auto}
+.sec-head{
+  font-family:var(--display);font-size:clamp(26px,4vw,40px);
+  letter-spacing:.02em;margin-bottom:44px;
+  display:inline-block;position:relative;
+}
+.sec-head::after{
+  content:'';position:absolute;left:0;bottom:-12px;
+  width:60px;height:3px;background:var(--red);
+}
+
+/* ── PAYMENT SPLIT ── */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:20px}
+@media(max-width:520px){.split-grid{grid-template-columns:1fr}}
+.split-card{
+  padding:32px 26px;text-align:center;
+  background:var(--black);position:relative;overflow:hidden;
+}
+.split-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.split-card--dep::before{background:var(--red)}
+.split-card--bal::before{background:rgba(236,231,226,.25)}
+.split-when{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:10px}
+.split-amt{font-family:var(--display);font-size:clamp(42px,8vw,64px);line-height:1}
+.split-card--dep .split-amt{color:var(--red)}
+.split-note{font-size:12px;color:var(--bone-dim);margin-top:10px;line-height:1.65;font-weight:300}
+.alert-box{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 18px;font-size:13px;color:var(--bone-dim);line-height:1.7;font-weight:300;
+}
+.alert-box--warn{background:rgba(227,15,46,.07);border:1px solid rgba(227,15,46,.22)}
+.alert-box--gold{background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.22)}
+.alert-box__icon{font-size:17px;flex-shrink:0;margin-top:1px}
+
+/* ── SHOW DETAILS GRID ── */
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px}
+.dg-cell{
+  padding:22px 20px;background:var(--black);
+  border:1px solid rgba(236,231,226,.06);transition:background .2s;
+}
+.dg-cell:hover{background:rgba(236,231,226,.03)}
+.dg-cell dt{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:8px}
+.dg-cell dd{font-family:var(--display);font-size:clamp(15px,2.2vw,20px);letter-spacing:.02em}
+
+/* ── DELIVERABLES ── */
+.del{display:flex;gap:20px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(236,231,226,.08)}
+.del:last-child{border-bottom:none}
+.del__num{font-family:var(--display);font-size:40px;color:var(--red);line-height:1;min-width:44px;opacity:.45}
+.del__title{font-family:var(--display);font-size:clamp(16px,2.4vw,21px);letter-spacing:.03em;margin-bottom:6px}
+.del__desc{font-size:13px;color:var(--bone-dim);line-height:1.8;font-weight:300}
+
+/* ── PROVIDE LIST ── */
+.prov{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(236,231,226,.08)}
+.prov:last-child{border-bottom:none}
+.prov__check{color:var(--red);font-size:18px;flex-shrink:0;margin-top:2px}
+.prov__title{font-family:var(--display);font-size:16px;letter-spacing:.04em;margin-bottom:3px}
+.prov__sub{font-size:13px;color:var(--bone-dim);font-weight:300}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{
+  content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(to bottom,var(--red),rgba(227,15,46,.1));
+}
+.tl{position:relative;margin-bottom:30px}
+.tl::before{
+  content:'';position:absolute;left:-29px;top:6px;
+  width:10px;height:10px;border-radius:50%;background:var(--red);
+  box-shadow:0 0 10px rgba(227,15,46,.6);
+}
+.tl-date{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.tl-title{font-family:var(--display);font-size:clamp(16px,2.2vw,20px);letter-spacing:.04em;margin-bottom:4px}
+.tl-desc{font-size:13px;color:var(--bone-dim);font-weight:300;line-height:1.75}
+
+/* ── TERMS ── */
+.terms{counter-reset:t;list-style:none}
+.terms li{
+  counter-increment:t;display:flex;gap:18px;
+  padding:16px 0;border-bottom:1px solid rgba(236,231,226,.07);
+  font-size:13px;color:var(--bone-dim);line-height:1.8;font-weight:300;
+}
+.terms li:last-child{border-bottom:none}
+.terms li::before{
+  content:counter(t);font-family:var(--display);font-size:24px;
+  color:rgba(227,15,46,.35);min-width:28px;line-height:1.15;
+}
+
+/* ══════════════════════════════════
+   SIGN THE DEAL
+══════════════════════════════════ */
+.sign-section{
+  padding:clamp(80px,14vw,140px) clamp(20px,6vw,80px);
+  text-align:center;
+  background:
+    radial-gradient(ellipse 100% 55% at 50% 0%,rgba(227,15,46,.18) 0%,transparent 60%),
+    var(--black);
+}
+.sign-headline{
+  font-family:var(--display);
+  font-size:clamp(60px,16vw,150px);
+  line-height:.85;letter-spacing:.01em;margin-bottom:14px;
+}
+.sign-sub{
+  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bone-dim);margin-bottom:56px;line-height:1.7;
+}
+
+.sign-form{max-width:580px;margin:0 auto;text-align:left}
+
+.fg{margin-bottom:26px}
+.flabel{
+  display:block;font-size:10px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--bone-dim);margin-bottom:8px;
+}
+.finput{
+  width:100%;background:rgba(236,231,226,.04);
+  border:1px solid rgba(236,231,226,.14);
+  border-bottom:2px solid rgba(236,231,226,.2);
+  color:var(--bone);font-family:var(--display);
+  font-size:clamp(18px,3vw,24px);letter-spacing:.04em;
+  padding:14px 18px;outline:none;transition:border-color .25s,background .25s;
+  -webkit-appearance:none;border-radius:0;
+}
+.finput::placeholder{color:rgba(236,231,226,.18);font-size:clamp(15px,2.5vw,20px)}
+.finput:focus{border-color:var(--red);border-bottom-color:var(--red);background:rgba(227,15,46,.04)}
+.finput.err{border-bottom-color:var(--red)}
+
+/* Signature */
+.sig-wrap{
+  border:1px solid rgba(236,231,226,.14);
+  border-bottom:2px solid rgba(236,231,226,.2);
+  background:rgba(236,231,226,.03);position:relative;
+  transition:border-color .25s;
+}
+.sig-wrap:focus-within{border-color:var(--red);border-bottom-color:var(--red)}
+.sig-canvas{display:block;width:100%;height:160px;cursor:crosshair;touch-action:none}
+.sig-ghost{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:20px;letter-spacing:.2em;
+  color:rgba(236,231,226,.12);pointer-events:none;transition:opacity .3s;
+}
+.sig-bar{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.sig-line-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,231,226,.25)}
+.sig-clear-btn{
+  font-family:var(--body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--bone-dim);background:none;border:none;cursor:pointer;padding:4px 0;
+  transition:color .2s;
+}
+.sig-clear-btn:hover{color:var(--red)}
+
+/* Agree */
+.agree{display:flex;gap:14px;align-items:flex-start;margin:32px 0 36px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.agree-box{
+  width:22px;height:22px;border:2px solid var(--red);flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.agree-box.on{background:var(--red)}
+.agree-box.on::after{content:'✓';color:var(--black);font-size:13px;font-weight:900}
+.agree-txt{font-size:13px;color:var(--bone-dim);line-height:1.75;font-weight:300}
+
+/* Error text */
+.ferr{font-size:11px;color:var(--red);letter-spacing:.1em;margin-top:5px;display:none}
+.ferr.show{display:block}
+
+/* Submit */
+.submit-btn{
+  width:100%;font-family:var(--display);
+  font-size:clamp(16px,3vw,22px);letter-spacing:.22em;
+  padding:22px 40px;background:var(--red);color:var(--bone);
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:background .3s,transform .3s cubic-bezier(.16,1,.3,1);
+}
+.submit-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 50%);
+}
+.submit-btn:hover{background:var(--red-glow);transform:translateY(-3px)}
+.submit-btn:disabled{background:rgba(227,15,46,.3);cursor:not-allowed;transform:none}
+
+/* ── Confirmation ── */
+.confirm{display:none;text-align:center;max-width:580px;margin:0 auto;padding:20px 0}
+.confirm.on{display:block}
+.confirm-star{font-size:64px;color:var(--red);display:block;margin-bottom:20px}
+.confirm-title{font-family:var(--display);font-size:clamp(36px,8vw,72px);margin-bottom:12px}
+.confirm-body{font-size:14px;color:var(--bone-dim);line-height:1.8;margin-bottom:40px}
+.confirm-table{
+  width:100%;border-collapse:collapse;text-align:left;margin-bottom:20px;
+}
+.confirm-table td{
+  padding:12px 16px;border-bottom:1px solid rgba(236,231,226,.07);
+  font-size:13px;vertical-align:top;
+}
+.confirm-table td:first-child{
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--bone-dim);width:38%;white-space:nowrap;
+}
+.confirm-table td:last-child{font-family:var(--display);font-size:16px}
+.confirm-sig{
+  width:100%;border:1px solid rgba(236,231,226,.08);
+  background:rgba(236,231,226,.03);display:block;margin-top:16px;
+}
+.confirm-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.confirm-btn{
+  flex:1;font-family:var(--display);font-size:13px;letter-spacing:.18em;
+  padding:16px 24px;border:1px solid rgba(236,231,226,.2);
+  color:var(--bone);background:transparent;cursor:pointer;text-decoration:none;
+  text-align:center;transition:all .25s;display:inline-block;
+}
+.confirm-btn:hover{background:rgba(236,231,226,.06)}
+.confirm-btn--red{background:var(--red);border-color:var(--red)}
+.confirm-btn--red:hover{background:var(--red-glow)}
+.confirm-note{font-size:11px;color:rgba(236,231,226,.25);letter-spacing:.1em;margin-top:20px}
+
+
+/* ══════════════════════════════════════
+   IDU HOUSE — VIBRANIUM SECTION
+══════════════════════════════════════ */
+--vibra:      #7c3aed;
+--vibra-deep: #3b0764;
+--vibra-glow: #a855f7;
+--gold-idu:   #c8922a;
+
+/* ── IDU HOUSE — professional footer badge ── */
+.iduhouse{
+  position:relative;
+  padding:44px 24px 52px;
+  text-align:center;
+  background:var(--black);
+  border-top:1px solid rgba(236,231,226,.06);
+}
+/* Subtle ambient gold glow rising from bottom */
+.iduhouse::after{
+  content:'';position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:480px;height:180px;
+  background:radial-gradient(ellipse at bottom,rgba(200,146,42,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.iduhouse__inner{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  max-width:280px;margin:0 auto;
+}
+.iduhouse__powered{
+  font-size:9px;letter-spacing:.45em;text-transform:uppercase;
+  color:rgba(236,231,226,.25);margin-bottom:18px;
+}
+.iduhouse__badge-wrap{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+/* Single soft gold halo — gentle pulse */
+.iduhouse__badge-wrap::before{
+  content:'';position:absolute;
+  inset:-24px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,146,42,.22) 0%,rgba(200,146,42,.06) 45%,transparent 70%);
+  animation:goldHalo 3.8s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes goldHalo{
+  0%,100%{opacity:.5;transform:scale(.96)}
+  50%     {opacity:1; transform:scale(1.06)}
+}
+.iduhouse__logo-img{
+  width:clamp(100px,18vw,150px);height:auto;display:block;
+  position:relative;z-index:1;
+  filter:drop-shadow(0 0 10px rgba(200,146,42,.35)) drop-shadow(0 2px 20px rgba(200,146,42,.15));
+}
+.iduhouse__cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(200,146,42,.6);text-decoration:none;
+  border-bottom:1px solid rgba(200,146,42,.2);
+  padding-bottom:2px;
+  transition:color .25s,border-color .25s;
+}
+.iduhouse__cta:hover{
+  color:#c8922a;
+  border-bottom-color:rgba(200,146,42,.55);
+}
+
+/* Footer */
+
+/* Footer */
+.footer{
+  padding:26px 20px;text-align:center;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--bone-dim);background:var(--black);
+  border-top:1px solid rgba(236,231,226,.08);
+}
+.footer__dot{margin:0 10px;color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ CODE GATE ═══════════ -->
+<div id="cgate" class="cgate">
+  <div class="grain"></div>
+  <div class="cgate__brand">KNARLI HEARTS</div>
+  <p class="cgate__kicker">Exclusive Artist Offer</p>
+  <h1 class="cgate__title">ENTER<br>ACCESS<br>CODE</h1>
+  <div class="cgate__divider"><span></span><i>★</i><span></span></div>
+  <form class="cgate__form" id="codeForm" novalidate>
+    <input class="cgate__input" id="codeInput" type="text"
+           maxlength="14" placeholder="· · · · · ·"
+           autocomplete="off" autocorrect="off"
+           autocapitalize="characters" spellcheck="false"/>
+    <div class="cgate__err" id="codeErr">INVALID CODE</div>
+    <button class="cgate__btn" type="submit">UNLOCK →</button>
+  </form>
+  <p class="cgate__sub">Contact Knarli Hearts for your code</p>
+</div>
+<!-- ════════════════════════════════ -->
+
+<div class="grain"></div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <p class="hero__kicker">Presented by Knarli Hearts &amp; Knarli Hearts · Confidential</p>
+
+  <h1 class="hero__names">
+    BABY OSAMA
+    <span class="hero__x">×</span>
+    TWEETSIE
+  </h1>
+
+  <div class="hero__divider"><span></span><i>★</i><span></span></div>
+
+  <p class="hero__fee-lbl">Flat Fee</p>
+  <div class="hero__fee">$3K</div>
+  <p class="hero__fee-sub">Plus full content package · your DC moment</p>
+
+  <h2 class="hero__date">Saturday, September <span class="accent">5</span></h2>
+  <p class="hero__venue">Song Byrd Music House · Washington, DC · All Ages</p>
+
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>REAL JAMMERZ</span><i>★</i><span>LIVE IN DC</span><i>★</i>
+    <span>BABY OSAMA</span><i>★</i><span>TWEETSIE</span><i>★</i>
+    <span>SONGBYRD DC</span><i>★</i><span>SEPTEMBER 5</span><i>★</i>
+    <span>KNARLI HEARTS</span><i>★</i><span>SEPT 5 2026</span><i>★</i>
+    <span>REAL JAMMERZ</span><i>★</i><span>LIVE IN DC</span><i>★</i>
+    <span>BABY OSAMA</span><i>★</i><span>TWEETSIE</span><i>★</i>
+    <span>SONGBYRD DC</span><i>★</i><span>SEPTEMBER 5</span><i>★</i>
+    <span>KNARLI HEARTS</span><i>★</i><span>SEPT 5 2026</span><i>★</i>
+  </div>
+</div>
+
+<!-- ══════════ REAL JAMMERZ PLAYER ══════════ -->
+<div class="player-wrap">
+  <div class="player" id="rjPlayer">
+    <div class="player__badge">UNRELEASED</div>
+    <div class="player__top">
+      <div>
+        <div class="player__song">REAL JAMMERZ</div>
+        <div class="player__meta">Tweetsie · Knarli Hearts · Knarli Hearts</div>
+      </div>
+      <div class="player__exclusive">Exclusive Preview</div>
+    </div>
+
+    <!-- Waveform (JS-generated bars) -->
+    <div class="player__wave" id="rjWave"></div>
+
+    <!-- Progress -->
+    <div class="player__prog" id="rjProg">
+      <div class="player__fill" id="rjFill"></div>
+    </div>
+    <div class="player__times">
+      <span id="rjCur">0:00</span>
+      <span id="rjDur">—:——</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="player__controls">
+      <button class="player__play" id="rjPlay" aria-label="Play Real Jammerz">▶</button>
+    </div>
+
+    <!-- Real Jammerz — converted from WAV, 3MB AAC -->
+    <audio id="rjAudio" preload="metadata">
+      <source src="assets/real-jammerz.m4a" type="audio/mp4"/>
+    </audio>
+    <p class="player__no-file" id="rjNoFile" style="display:none">⚠ Audio loading…</p>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="inner">
+    <h3 class="sec-head">The Money</h3>
+    <div class="split-grid">
+      <div class="split-card split-card--dep">
+        <div class="split-when">On Signing</div>
+        <div class="split-amt">$1,500</div>
+        <div class="split-note">Deposit — paid immediately<br>upon contract execution</div>
+      </div>
+      <div class="split-card split-card--bal">
+        <div class="split-when">At Settlement · Sept 5</div>
+        <div class="split-amt">$1,500</div>
+        <div class="split-note">Balance paid at venue<br>on show night</div>
+      </div>
+    </div>
+    <div class="alert-box alert-box--warn">
+      <span class="alert-box__icon">⚠</span>
+      <span>Artist is responsible for their own travel and hotel to DC.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SHOW DETAILS ══════════ -->
+<section class="section section--alt">
+  <div class="inner">
+    <h3 class="sec-head">The Show</h3>
+    <dl class="dg">
+      <div class="dg-cell"><dt>Date</dt><dd>Saturday, Sept 5</dd></div>
+      <div class="dg-cell"><dt>Venue</dt><dd>Song Byrd Music House</dd></div>
+      <div class="dg-cell"><dt>Doors</dt><dd>7PM · Curfew 11PM</dd></div>
+      <div class="dg-cell"><dt>Your Role</dt><dd>Special Guest</dd></div>
+      <div class="dg-cell"><dt>Headliner</dt><dd>Tweetsie</dd></div>
+      <div class="dg-cell"><dt>Announced</dt><dd>August 11, 2026</dd></div>
+      <div class="dg-cell"><dt>Presented By</dt><dd>Knarli Hearts</dd></div>
+      <div class="dg-cell"><dt>Ages</dt><dd>All Ages</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════ DELIVERABLES ══════════ -->
+<section class="section">
+  <div class="inner">
+    <h3 class="sec-head">What We're Asking</h3>
+
+    <div class="del">
+      <div class="del__num">01</div>
+      <div>
+        <div class="del__title">Live Performance at Songbyrd DC</div>
+        <div class="del__desc">Special guest set on September 5. Length and setlist TBD with Tweetsie's team. This is your DC moment — a room that's lit and looking for new energy.</div>
+      </div>
+    </div>
+
+    <div class="del">
+      <div class="del__num">02</div>
+      <div>
+        <div class="del__title">One Pre-Show IG Collab Post</div>
+        <div class="del__desc">A coordinated promo post with Tweetsie and Knarli — all three in Knarli Hearts merch. Shot on or around August 11. Organic, authentic, moves tickets. Merch provided, yours to keep.</div>
+      </div>
+    </div>
+
+    <div class="del">
+      <div class="del__num">03</div>
+      <div>
+        <div class="del__title">Music Video Cameo — "Real Jammerz"</div>
+        <div class="del__desc">A cameo in Tweetsie's "Real Jammerz" video, filmed live at Songbyrd. This is the song — unreleased, built for the moment. Your cameo is locked in history the night it drops.</div>
+      </div>
+    </div>
+
+    <div class="del">
+      <div class="del__num">04</div>
+      <div>
+        <div class="del__title">Show Day Content Creation</div>
+        <div class="del__desc">Full show day content — shoots, BTS, performance footage, video moments. The show is designed as a content creation event. Videographer covers everything. Your clips, your brand. Delivered within 2 weeks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHAT YOU GET ══════════ -->
+<section class="section section--alt">
+  <div class="inner">
+    <h3 class="sec-head">What You Get</h3>
+
+    <div class="alert-box alert-box--gold" style="margin-bottom:24px">
+      <span class="alert-box__icon" style="color:#e8a020">⚠</span>
+      <div>
+        <strong style="font-family:var(--display);font-size:15px;letter-spacing:.06em;color:#e8a020;display:block;margin-bottom:3px">Travel &amp; Hotel — Artist Responsibility</strong>
+        <span style="font-size:13px;font-weight:300">Artist is responsible for their own travel and hotel to DC.</span>
+      </div>
+    </div>
+
+    <div class="prov">
+      <div class="prov__check">✓</div>
+      <div>
+        <div class="prov__title">$1,500 Deposit on Signing</div>
+        <div class="prov__sub">Paid immediately upon contract execution via Zelle, wire, or agreed method</div>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="prov__check">✓</div>
+      <div>
+        <div class="prov__title">Knarli Hearts Merch for Promo Shoot</div>
+        <div class="prov__sub">Pieces provided for the IG collab shoot — yours to keep after</div>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="prov__check">✓</div>
+      <div>
+        <div class="prov__title">Full Content Package Delivery</div>
+        <div class="prov__sub">Your show day footage — shots, performance clips, BTS — delivered to your team within 14 days</div>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="prov__check">✓</div>
+      <div>
+        <div class="prov__title">Hospitality Rider</div>
+        <div class="prov__sub">Backstage at Songbyrd Music House — details per your standard rider, submitted before show</div>
+      </div>
+    </div>
+    <div class="prov">
+      <div class="prov__check">✓</div>
+      <div>
+        <div class="prov__title">DC Network Exposure</div>
+        <div class="prov__sub">Knarli Hearts audience · LiveMixtapes platform · full promo push through September 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TIMELINE ══════════ -->
+<section class="section">
+  <div class="inner">
+    <h3 class="sec-head">Timeline</h3>
+    <div class="timeline">
+      <div class="tl">
+        <div class="tl-date">Now — August 11</div>
+        <div class="tl-title">Deal Signed · $1,500 Deposit Issued</div>
+        <div class="tl-desc">Agreement executed, deposit paid. IG collab shoot scheduled with Tweetsie and Knarli Hearts. Artist arranges own travel. Logistics confirmed.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-date">August 11</div>
+        <div class="tl-title">Special Guest Announced</div>
+        <div class="tl-desc">Simultaneous reveal across all platforms. IG collab goes live. Both teams post, both audiences see it.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-date">August 11 — September 4</div>
+        <div class="tl-title">Hype Campaign</div>
+        <div class="tl-desc">Coordinated promo across both audiences. Ticket push. Social content rollout. Real Jammerz streaming push.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-date">September 5</div>
+        <div class="tl-title">Show Day — Songbyrd DC</div>
+        <div class="tl-desc">Doors 7PM. Full day: content creation, sound check, performance, music video cameo. Curfew 11PM.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-date">Settlement · Sept 5</div>
+        <div class="tl-title">Balance Paid at Venue</div>
+        <div class="tl-desc">Remaining $1,500 settled at Songbyrd on show night. Content delivered within 14 days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TERMS ══════════ -->
+<section class="section section--alt">
+  <div class="inner">
+    <h3 class="sec-head">Terms</h3>
+    <ol class="terms">
+      <li>Fee of $3,000 USD total. Artist is responsible for their own travel and hotel to DC.</li>
+      <li>$1,500 non-refundable deposit paid upon contract signing. Remaining $1,500 settled at venue on show day via Zelle, wire, or agreed method.</li>
+      <li>Artist agrees to one (1) coordinated IG promo post with Tweetsie and Knarli Hearts — all in Knarli Hearts merch — posted on or around August 11, 2026.</li>
+      <li>Artist agrees to one (1) music video cameo in Tweetsie's "Real Jammerz," filmed live at Songbyrd on September 5. Artist retains rights to their own likeness; Knarli Hearts retains rights to the music video use only.</li>
+      <li>Artist approves use of their name and likeness in show promotional materials following August 11, 2026.</li>
+      <li>Show is all ages. Venue curfew 11PM EST. Artist available for sound check (generally 3–5 hours before doors). Details TBD.</li>
+      <li>No merch split obligation for artist. Knarli Hearts merch sales are 100% to Tweetsie per venue contract.</li>
+      <li>All tickets including VIP sold through Songbyrd Music House — outside tickets void deal.</li>
+      <li>Performance-only agreement. No exclusivity clauses unless separately and explicitly negotiated in writing.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SIGN THE DEAL
+══════════════════════════════ -->
+<section class="sign-section" id="sign">
+
+  <div id="formWrap">
+    <h2 class="sign-headline">YOU IN?</h2>
+    <p class="sign-sub">
+      Read the terms above &nbsp;·&nbsp; Fill in your info &nbsp;·&nbsp; Sign below<br>
+      $1,500 hits your Zelle the moment you sign.
+    </p>
+
+    <form class="sign-form" id="dealForm" novalidate>
+
+      <div class="fg">
+        <label class="flabel" for="fName">Legal Name</label>
+        <input class="finput" id="fName" type="text" placeholder="Your full name" autocomplete="name"/>
+        <div class="ferr" id="eName">Name is required</div>
+      </div>
+
+      <div class="fg">
+        <label class="flabel" for="fPhone">Phone Number</label>
+        <input class="finput" id="fPhone" type="tel" placeholder="+1 (000) 000-0000" autocomplete="tel"/>
+        <div class="ferr" id="ePhone">Valid phone number required</div>
+      </div>
+
+      <div class="fg">
+        <label class="flabel" for="fEmail">Email Address</label>
+        <input class="finput" id="fEmail" type="email" placeholder="your@email.com" autocomplete="email"/>
+        <div class="ferr" id="eEmail">Valid email required</div>
+      </div>
+
+      <div class="fg">
+        <label class="flabel" for="fZelle">Zelle — Phone or Email for $1,500 Deposit</label>
+        <input class="finput" id="fZelle" type="text" placeholder="Phone or email on your Zelle account"/>
+        <div class="ferr" id="eZelle">Zelle info required to release deposit</div>
+      </div>
+
+      <!-- Signature pad -->
+      <div class="fg">
+        <label class="flabel">Your Signature</label>
+        <div class="sig-wrap" id="sigWrap">
+          <canvas class="sig-canvas" id="sigCanvas"></canvas>
+          <div class="sig-ghost" id="sigGhost">SIGN HERE</div>
+        </div>
+        <div class="sig-bar">
+          <span class="sig-line-label">x ___________________________</span>
+          <button type="button" class="sig-clear-btn" id="sigClear">Clear</button>
+        </div>
+        <div class="ferr" id="eSig">Signature required</div>
+      </div>
+
+      <!-- Agreement -->
+      <div class="agree" id="agreeRow">
+        <div class="agree-box" id="agreeBox"></div>
+        <p class="agree-txt">I have read and agree to all terms above. I understand the $3,000 total fee, the $1,500 non-refundable deposit on signing, and that the remaining $1,500 balance is settled at venue on September 5, 2026.</p>
+      </div>
+      <div class="ferr" id="eAgree">You must agree to the terms to proceed</div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">SIGN THE DEAL →</button>
+
+    </form>
+  </div>
+
+  <!-- ── Confirmation ── -->
+  <div class="confirm" id="confirmWrap">
+    <span class="confirm-star">★</span>
+    <h2 class="confirm-title">DEAL'S LOCKED.</h2>
+    <p class="confirm-body">
+      Welcome to September 5. Knarli Hearts will reach out within 24 hours to confirm the $1,500 deposit to your Zelle and lock in next steps.<br><br>
+      <strong>Songbyrd Music House · Washington, DC · Let's build.</strong>
+    </p>
+    <table class="confirm-table" id="confirmTable"></table>
+    <img class="confirm-sig" id="confirmSig" src="" alt="Signature"/>
+    <div class="confirm-actions">
+      <a href="#" class="confirm-btn confirm-btn--red" id="emailBtn">Email to Knarli Hearts</a>
+      <button class="confirm-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+    <p class="confirm-note">Screenshot or print this page for your records</p>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════
+     IDU HOUSE — POWERED BY
+══════════════════════════════════════ -->
+<section class="iduhouse">
+  <div class="iduhouse__inner">
+    <p class="iduhouse__powered">Powered by</p>
+    <div class="iduhouse__badge-wrap">
+      <a href="https://www.iduhouse.com/creator-services" target="_blank" rel="noopener" aria-label="Idu House Creator Services">
+        <img src="assets/idu-house-transparent.png" alt="Idu House" class="iduhouse__logo-img"/>
+      </a>
+    </div>
+    <a href="https://www.iduhouse.com/creator-services"
+       target="_blank" rel="noopener"
+       class="iduhouse__cta">
+      Creator Services &nbsp;→
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>Baby Osama &times; Tweetsie &times; Knarli Hearts &times; Knarli Hearts</span>
+  <span class="footer__dot">&middot;</span>
+  <span>Song Byrd Music House &middot; September 5, 2026</span>
+</footer>
+
+<script>
+// ════════════════════════════════
+//  CODE GATE
+//  Change ACCESS_CODE to whatever you want to send the artist
+// ════════════════════════════════
+(function(){
+  const ACCESS_CODE = 'JAMMERZ'; // ← set your code here
+
+  const gate  = document.getElementById('cgate');
+  const input = document.getElementById('codeInput');
+  const err   = document.getElementById('codeErr');
+  if(!gate) return;
+
+  // Already unlocked this session?
+  if(sessionStorage.getItem('deal_ok') === '1'){
+    gate.remove(); return;
+  }
+  document.body.style.overflow = 'hidden';
+
+  document.getElementById('codeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const val = input.value.trim().toUpperCase();
+    if(val === ACCESS_CODE.toUpperCase()){
+      sessionStorage.setItem('deal_ok','1');
+      gate.classList.add('out');
+      setTimeout(()=>{ gate.remove(); document.body.style.overflow=''; }, 950);
+    } else {
+      err.classList.add('show');
+      input.classList.add('shake');
+      input.value = '';
+      setTimeout(()=> input.classList.remove('shake'), 520);
+    }
+  });
+  input.addEventListener('input', ()=> err.classList.remove('show'));
+})();
+
+// ════════════════════════════════
+//  REAL JAMMERZ PLAYER
+// ════════════════════════════════
+(function(){
+  const audio  = document.getElementById('rjAudio');
+  const btn    = document.getElementById('rjPlay');
+  const wave   = document.getElementById('rjWave');
+  const prog   = document.getElementById('rjProg');
+  const fill   = document.getElementById('rjFill');
+  const curEl  = document.getElementById('rjCur');
+  const durEl  = document.getElementById('rjDur');
+  const noFile = document.getElementById('rjNoFile');
+  if(!wave) return;
+
+  // ── Build waveform bars ──
+  const BAR_N  = 72;
+  // Seeded pattern so the shape looks like a real track
+  const SHAPE  = [.3,.45,.6,.8,.7,.9,.5,.75,.85,.6,.4,.65,.9,.8,.55,.7,.85,.6,.45,.7,.9,.75,.5,.6,.8,.55,.7,.4,.85,.65,.9,.7,.5,.6,.75,.8,.45,.7,.9,.55,.6,.85,.7,.4,.65,.8,.75,.5,.9,.6,.7,.45,.85,.55,.65,.8,.7,.9,.6,.5,.75,.85,.55,.7,.45,.6,.8,.9,.7,.5,.65,.75];
+  const bars   = [];
+
+  for(let i = 0; i < BAR_N; i++){
+    const b = document.createElement('div');
+    b.className = 'wv';
+    const h = 10 + SHAPE[i % SHAPE.length] * 88;
+    b.style.height = h + '%';
+    b.dataset.base = h;
+    wave.appendChild(b);
+    bars.push(b);
+  }
+
+  // ── Helpers ──
+  function fmt(s){ s=s||0; return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
+
+  let playing = false, raf;
+
+  function updatePlayed(){
+    const pct = audio.duration ? audio.currentTime/audio.duration : 0;
+    const pivot = Math.floor(pct * BAR_N);
+    bars.forEach((b,i)=> b.classList.toggle('played', i < pivot));
+    fill.style.width = (pct*100)+'%';
+    curEl.textContent = fmt(audio.currentTime);
+  }
+
+  function animWave(){
+    bars.forEach(b=>{
+      const base = parseFloat(b.dataset.base);
+      b.style.height = Math.max(8, Math.min(100, base + (Math.random()-.5)*38))+'%';
+    });
+    raf = requestAnimationFrame(()=> setTimeout(animWave, 110));
+  }
+
+  function resetWave(){
+    bars.forEach(b=>{ b.style.height = b.dataset.base+'%'; b.classList.remove('played'); });
+  }
+
+  function startPlay(){
+    playing = true;
+    btn.innerHTML = '&#10074;&#10074;'; // ❚❚
+    btn.classList.add('on');
+    animWave();
+  }
+  function stopPlay(){
+    playing = false;
+    btn.innerHTML = '&#9654;'; // ▶
+    btn.classList.remove('on');
+    cancelAnimationFrame(raf);
+    resetWave();
+  }
+
+  btn.addEventListener('click', ()=>{
+    if(playing){
+      audio.pause();
+      stopPlay();
+    } else {
+      const p = audio.play();
+      if(p !== undefined){
+        p.then(startPlay).catch(()=>{
+          // No audio file — run visual-only demo
+          noFile.style.display = 'block';
+          startPlay();
+          // Fake timer
+          let t = 0;
+          const fake = setInterval(()=>{
+            if(!playing){ clearInterval(fake); return; }
+            t += 0.11;
+            const fakeDur = 192; // 3:12
+            curEl.textContent = fmt(t);
+            durEl.textContent  = fmt(fakeDur);
+            fill.style.width  = Math.min((t/fakeDur)*100, 100)+'%';
+            const pivot = Math.floor((t/fakeDur)*BAR_N);
+            bars.forEach((b,i)=> b.classList.toggle('played', i < pivot));
+            if(t >= fakeDur){ clearInterval(fake); stopPlay(); fill.style.width='0%'; }
+          }, 110);
+        });
+      }
+    }
+  });
+
+  // Sync real audio events
+  audio.addEventListener('timeupdate', updatePlayed);
+  audio.addEventListener('loadedmetadata', ()=> durEl.textContent = fmt(audio.duration));
+  audio.addEventListener('ended', ()=>{ stopPlay(); fill.style.width='0%'; bars.forEach(b=> b.classList.remove('played')); });
+
+  // Seek on waveform / progress bar click
+  [wave, prog].forEach(el => el.addEventListener('click', e=>{
+    if(!audio.duration) return;
+    const r = el.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - r.left)/r.width) * audio.duration;
+    updatePlayed();
+  }));
+})();
+
+
+// ── Signature Canvas ──
+(function(){
+  const canvas = document.getElementById('sigCanvas');
+  const ctx    = canvas.getContext('2d');
+  const ghost  = document.getElementById('sigGhost');
+  let drawing  = false;
+  let hasSig   = false;
+
+  function init(){
+    const dpr = window.devicePixelRatio || 1;
+    const w   = canvas.offsetWidth  || 540;
+    const h   = canvas.offsetHeight || 160;
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.scale(dpr, dpr);
+    ctx.strokeStyle = '#ece7e2';
+    ctx.lineWidth   = 2.5;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+  }
+  window.addEventListener('load', init);
+
+  function getPos(e){
+    const r   = canvas.getBoundingClientRect();
+    const src = e.touches ? e.touches[0] : e;
+    return { x: src.clientX - r.left, y: src.clientY - r.top };
+  }
+  function onStart(e){
+    e.preventDefault(); drawing = true;
+    const p = getPos(e);
+    ctx.beginPath(); ctx.moveTo(p.x, p.y);
+    if(!hasSig){ hasSig = true; ghost.style.opacity = '0'; }
+  }
+  function onMove(e){
+    if(!drawing) return;
+    e.preventDefault();
+    const p = getPos(e);
+    ctx.lineTo(p.x, p.y); ctx.stroke();
+  }
+  function onEnd(){ drawing = false; }
+
+  canvas.addEventListener('mousedown',  onStart);
+  canvas.addEventListener('mousemove',  onMove);
+  canvas.addEventListener('mouseup',    onEnd);
+  canvas.addEventListener('mouseleave', onEnd);
+  canvas.addEventListener('touchstart', onStart, { passive: false });
+  canvas.addEventListener('touchmove',  onMove,  { passive: false });
+  canvas.addEventListener('touchend',   onEnd);
+
+  document.getElementById('sigClear').addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    hasSig = false;
+    ghost.style.opacity = '1';
+  });
+
+  window._sigDone   = () => hasSig;
+  window._sigImage  = () => canvas.toDataURL('image/png');
+})();
+
+// ── Agree toggle ──
+let agreed = false;
+document.getElementById('agreeRow').addEventListener('click', () => {
+  agreed = !agreed;
+  document.getElementById('agreeBox').classList.toggle('on', agreed);
+  if(agreed) document.getElementById('eAgree').classList.remove('show');
+});
+
+// ── Validate helper ──
+function check(val, errId, inputId, test){
+  const ok = test(val);
+  document.getElementById(errId).classList.toggle('show', !ok);
+  if(inputId) document.getElementById(inputId).classList.toggle('err', !ok);
+  return ok;
+}
+
+// ── Submit ──
+document.getElementById('dealForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name  = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const zelle = document.getElementById('fZelle').value.trim();
+  const sig   = window._sigDone();
+
+  let ok = true;
+  ok = check(name,  'eName',  'fName',  v => v.length > 1)  && ok;
+  ok = check(phone, 'ePhone', 'fPhone', v => v.replace(/\D/g,'').length >= 10) && ok;
+  ok = check(email, 'eEmail', 'fEmail', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) && ok;
+  ok = check(zelle, 'eZelle', 'fZelle', v => v.length > 3)  && ok;
+  ok = check(sig,   'eSig',   null,     v => v) && ok;
+  if(!agreed){ document.getElementById('eAgree').classList.add('show'); ok = false; }
+
+  if(!ok){
+    // Scroll to first error
+    const first = document.querySelector('.ferr.show');
+    if(first) first.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+
+  const sigURL  = window._sigImage();
+  const dateStr = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+
+  // Build confirmation table
+  const rows = [
+    ['Artist',      name],
+    ['Phone',       phone],
+    ['Email',       email],
+    ['Zelle',       zelle],
+    ['Deposit',     '$1,500 — pending Zelle'],
+    ['Balance',     '$1,500 at venue Sept 5'],
+    ['Show Date',   'September 5, 2026'],
+    ['Venue',       'Song Byrd Music House, DC'],
+    ['Date Signed', dateStr],
+  ];
+  document.getElementById('confirmTable').innerHTML =
+    rows.map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  document.getElementById('confirmSig').src = sigURL;
+
+  // ── POST to Google Sheet ──
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx36Ag7iPZG9UDeIYLoMXlcXO3r5se2SOATCXfIhdiQfdG14rxmkbqreMOUEm5FP_zj/exec';
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ date: dateStr, name, phone, email, zelle })
+  }).catch(() => {}); // silent — sheet logs async, don't block UI
+
+  // Build mailto link
+  const subject = encodeURIComponent(`Deal Signed — Baby Osama × Tweetsie Sept 5`);
+  const body    = encodeURIComponent(
+    `DEAL SIGNED — ${dateStr}\n\n` +
+    rows.map(([k,v]) => `${k}: ${v}`).join('\n') +
+    `\n\nBaby Osama × Tweetsie · Songbyrd DC · September 5, 2026`
+  );
+  document.getElementById('emailBtn').href =
+    `mailto:dell@iduhouse.com?subject=${subject}&body=${body}`;
+
+  // Show confirmation
+  document.getElementById('formWrap').style.display    = 'none';
+  document.getElementById('confirmWrap').classList.add('on');
+  document.getElementById('sign').scrollIntoView({ behavior:'smooth', block:'start' });
+});
+</script>
+
+</body>
+</html>
