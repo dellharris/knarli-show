@@ -385,6 +385,18 @@ body {
 .rsvp__cta:hover { color: var(--bone); }
 
 /* Footer */
+/* ── IDU HOUSE ── */
+.iduhouse{position:relative;padding:44px 24px 52px;text-align:center;background:var(--black);border-top:1px solid rgba(236,231,226,.06)}
+.iduhouse::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:480px;height:180px;background:radial-gradient(ellipse at bottom,rgba(200,146,42,.07) 0%,transparent 70%);pointer-events:none}
+.iduhouse__inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;max-width:280px;margin:0 auto}
+.iduhouse__powered{font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:rgba(236,231,226,.25);margin-bottom:18px}
+.iduhouse__badge-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+.iduhouse__badge-wrap::before{content:'';position:absolute;inset:-24px;border-radius:50%;background:radial-gradient(ellipse,rgba(200,146,42,.22) 0%,rgba(200,146,42,.06) 45%,transparent 70%);animation:goldHalo 3.8s ease-in-out infinite;pointer-events:none}
+@keyframes goldHalo{0%,100%{opacity:.5;transform:scale(.96)}50%{opacity:1;transform:scale(1.06)}}
+.iduhouse__logo-img{width:clamp(100px,18vw,150px);height:auto;display:block;position:relative;z-index:1;filter:drop-shadow(0 0 10px rgba(200,146,42,.35)) drop-shadow(0 2px 20px rgba(200,146,42,.15))}
+.iduhouse__cta{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(200,146,42,.6);text-decoration:none;border-bottom:1px solid rgba(200,146,42,.2);padding-bottom:2px;transition:color .25s,border-color .25s}
+.iduhouse__cta:hover{color:#c8922a;border-bottom-color:rgba(200,146,42,.55)}
+
 .footer {
   padding: 26px 20px;
   text-align: center;
