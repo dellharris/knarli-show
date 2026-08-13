@@ -11,7 +11,9 @@
 }
 
 /* ── ENTRY GATE ── */
-  position: fixed; inset: 0; z-index: 700;
+.entry-gate {
+  position: fixed; inset: 0; z-index: 9999;
+  width: 100%; height: 100dvh; height: 100vh;
   background: #000;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -19,6 +21,7 @@
   -webkit-tap-highlight-color: transparent;
   transition: opacity .9s cubic-bezier(.4,0,1,1);
   overflow: hidden;
+  padding: 20px;
 }
 .entry-gate::before {
   content:''; position:absolute; inset:0; pointer-events:none;
@@ -39,7 +42,8 @@
 
 .entry-gate__cupid-wrap {
   position: relative;
-  width: min(480px, 86vw);
+  width: min(420px, 72vw, 52vh);
+  flex-shrink: 0;
   animation: cupidFloat 4.2s ease-in-out infinite;
   filter: drop-shadow(0 0 40px rgba(180,20,120,.4))
           drop-shadow(0 0 90px rgba(180,20,120,.18));
