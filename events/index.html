@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Tweetsie & Special Guest — Song Byrd Music House</title>
-<meta name="description" content="Saturday, September 5 — Song Byrd Music House. Ricann, Danjalé, Yoko, Mundane + Tweetsie & Special Guest. Presented by Knarli Hearts." />
+<title>Tweetsie & Special Guest CLIP — Song Byrd Music House</title>
+<meta name="description" content="Saturday, September 5 — Song Byrd Music House. Ricann, Danjalé, Yoko, Mundane + Tweetsie & Special Guest CLIP. Presented by Knarli Hearts." />
 <!-- Open Graph / link preview thumbnail -->
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Tweetsie & Special Guest — Sept 5 · Songbyrd DC"/>
+<meta property="og:title" content="Tweetsie & Special Guest CLIP — Sept 5 · Songbyrd DC"/>
 <meta property="og:description" content="Saturday, September 5 — Song Byrd Music House, Washington DC. Knarli Hearts Presents."/>
 <meta property="og:image" content="https://tweetsie.iduhouse.com/events/assets/og-thumbnail.jpg"/>
 <meta property="og:image:width" content="1200"/>
@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://tweetsie.iduhouse.com/events/"/>
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Tweetsie & Special Guest — Sept 5 · Songbyrd DC"/>
+<meta name="twitter:title" content="Tweetsie & Special Guest CLIP — Sept 5 · Songbyrd DC"/>
 <meta name="twitter:description" content="Saturday, September 5 — Song Byrd Music House, Washington DC. Knarli Hearts Presents."/>
 <meta name="twitter:image" content="https://tweetsie.iduhouse.com/events/assets/og-thumbnail.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,188 +24,41 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     GATE — Pierce the heart to enter
-═══════════════════════════════════ -->
-<div id="gate" class="gate" role="button" tabindex="0" aria-label="Pierce the heart to enter">
+<!-- VIP GIVEAWAY POPUP -->
+<div class="vip-overlay" id="vipOverlay">
+  <div class="vip-box">
+    <button class="vip-close" id="vipClose" aria-label="Close">×</button>
 
-  <!-- Header info -->
-  <div class="gate__header">
-    <span class="gate__brand">KNARLI HEARTS <span class="accent">PRESENTS</span></span>
-    <span class="gate__event">Tweetsie &amp; Special Guest &nbsp;·&nbsp; Sept 5 &nbsp;·&nbsp; Song Byrd DC</span>
+    <div class="vip-form-wrap" id="vipFormWrap">
+      <p class="vip-kicker">Exclusive Giveaway</p>
+      <h2 class="vip-headline">WIN A VIP<br>MEET &amp; GREET</h2>
+      <p class="vip-body">
+        One fan wins a <strong>backstage meet &amp; greet with CLIP</strong> before the show.<br><br>
+        Drop your number. We'll text the winner directly.<br>
+        <strong>Sept 5 · Songbyrd DC · Knarli Hearts</strong>
+      </p>
+      <input class="vip-input" id="vipName" type="text"
+             placeholder="Your name"
+             autocomplete="name" style="margin-bottom:12px"/>
+      <input class="vip-input" id="vipPhone" type="tel"
+             placeholder="+1 (000) 000-0000"
+             inputmode="tel" autocomplete="tel"/>
+      <div class="vip-err" id="vipErr">Enter your name and a valid phone number</div>
+      <button class="vip-submit" id="vipSubmit">ENTER TO WIN →</button>
+      <p class="vip-legal">By entering you agree to receive one SMS confirmation. No spam. Ever.</p>
+    </div>
+
+    <div class="vip-confirm" id="vipConfirm">
+      <p class="vip-confirm-title">YOU'RE IN.</p>
+      <p class="vip-confirm-body">
+        Entry received. The winner gets a text before show day.<br><br>
+        <strong>See you Sept 5 at Songbyrd DC.</strong>
+      </p>
+    </div>
   </div>
+</div>
 
-  <!-- ── CHROME HEART ── -->
-  <div class="gate__heart-wrap" id="heartWrap">
-    <svg class="gate__heart" id="heartSvg"
-         viewBox="-82 -78 164 148" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Glossy-black chrome — matches the heart balloon on the poster -->
-        <radialGradient id="cg" cx="28%" cy="22%" r="74%" fx="20%" fy="14%">
-          <stop offset="0%"   stop-color="#d8d8d8"/>
-          <stop offset="6%"   stop-color="#909090"/>
-          <stop offset="16%"  stop-color="#383838"/>
-          <stop offset="34%"  stop-color="#121212"/>
-          <stop offset="52%"  stop-color="#060606"/>
-          <stop offset="68%"  stop-color="#242424"/>
-          <stop offset="84%"  stop-color="#101010"/>
-          <stop offset="100%" stop-color="#020202"/>
-        </radialGradient>
-        <!-- Specular shine stripe (top-left catch light) -->
-        <linearGradient id="sg" x1="4%" y1="4%" x2="62%" y2="88%">
-          <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.68"/>
-          <stop offset="20%"  stop-color="#ffffff" stop-opacity="0.12"/>
-          <stop offset="38%"  stop-color="#ffffff" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-        </linearGradient>
-        <!-- Blood drip gradient -->
-        <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stop-color="#cc001a"/>
-          <stop offset="55%"  stop-color="#8b0012"/>
-          <stop offset="100%" stop-color="#3a0007" stop-opacity="0.15"/>
-        </linearGradient>
-        <!-- Heart drop shadow -->
-        <filter id="hs" x="-28%" y="-28%" width="156%" height="156%">
-          <feDropShadow dx="0" dy="6" stdDeviation="20"
-                        flood-color="#000000" flood-opacity="0.95"/>
-        </filter>
-        <!-- Post-hit red bleed glow -->
-        <filter id="rg" x="-35%" y="-35%" width="170%" height="170%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b"/>
-          <feColorMatrix in="b" type="matrix"
-            values="2.2 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0" result="rb"/>
-          <feMerge><feMergeNode in="rb"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
 
-      <!-- Heart body (two passes: chrome fill + specular overlay + rim) -->
-      <g id="heartBodyG" filter="url(#hs)">
-        <path id="heartPath"
-          d="M0,-44 C-6,-66 -32,-74 -52,-55 C-72,-36 -70,-6 0,58
-             C70,-6 72,-36 52,-55 C32,-74 6,-66 0,-44 Z"
-          fill="url(#cg)"/>
-        <path
-          d="M0,-44 C-6,-66 -32,-74 -52,-55 C-72,-36 -70,-6 0,58
-             C70,-6 72,-36 52,-55 C32,-74 6,-66 0,-44 Z"
-          fill="url(#sg)"/>
-        <path
-          d="M0,-44 C-6,-66 -32,-74 -52,-55 C-72,-36 -70,-6 0,58
-             C70,-6 72,-36 52,-55 C32,-74 6,-66 0,-44 Z"
-          fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.8"/>
-      </g>
-
-      <!-- Wound (opens on impact) -->
-      <circle id="wound" cx="0" cy="-8" r="0" fill="#aa0018"/>
-
-      <!-- Impact flash ring -->
-      <circle id="impactFlash" cx="0" cy="-8" r="0" fill="white" opacity="0"/>
-
-      <!-- Crack lines (appear after hit) -->
-      <g id="cracks" opacity="0"
-         stroke="rgba(160,155,150,0.8)" stroke-width="1.3"
-         fill="none" stroke-linecap="round">
-        <polyline points="0,-8 -20,-40 -28,-30"/>
-        <polyline points="-28,-30 -38,-46"/>
-        <polyline points="0,-8 18,-34 24,-22"/>
-        <polyline points="24,-22 34,-42"/>
-        <polyline points="0,-8 -11,16 -22,36"/>
-        <polyline points="0,-8 14,12 26,30"/>
-        <line x1="0" y1="-8" x2="-5" y2="-26"/>
-      </g>
-
-      <!-- Blood drips (animated via JS) -->
-      <g id="svgBlood" opacity="0">
-        <rect id="bd0" x="-7"  y="-3"  width="9"  height="0" fill="url(#bg)" rx="4"/>
-        <rect id="bd1" x="5"   y="-1"  width="7"  height="0" fill="url(#bg)" rx="3.5"/>
-        <rect id="bd2" x="-18" y="5"   width="6"  height="0" fill="url(#bg)" rx="3"/>
-        <rect id="bd3" x="14"  y="3"   width="5"  height="0" fill="url(#bg)" rx="2.5"/>
-        <rect id="bd4" x="-2"  y="-3"  width="4"  height="0" fill="url(#bg)" rx="2"/>
-      </g>
-    </svg>
-
-    <!-- Arrow that appears stuck in heart after impact -->
-    <svg class="gate__arrow-embed" id="arrowEmbed"
-         viewBox="0 0 200 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="ag2" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stop-color="#f0cc48"/>
-          <stop offset="45%"  stop-color="#b0780a"/>
-          <stop offset="100%" stop-color="#f0cc48"/>
-        </linearGradient>
-      </defs>
-      <line x1="8" y1="16" x2="148" y2="16"
-            stroke="url(#ag2)" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="30" y1="12" x2="30" y2="20" stroke="#7a5200" stroke-width="2"/>
-      <line x1="37" y1="12" x2="37" y2="20" stroke="#7a5200" stroke-width="2"/>
-      <line x1="44" y1="12" x2="44" y2="20" stroke="#7a5200" stroke-width="2"/>
-      <path d="M8,16 L22,7 L18,16 L22,25 Z" fill="#cc0020"/>
-      <path d="M8,16 L20,10 L18,16 L20,22 Z" fill="#880012" opacity="0.75"/>
-      <path d="M148,16 L138,9 L143,16 L138,23 Z"
-            fill="#d4a020" stroke="#f0cc40" stroke-width="0.8"/>
-      <g transform="translate(157,16) scale(0.44)">
-        <path d="M0,-18 C0,-28 -12,-30 -18,-20 C-24,-10 -22,2 0,20
-                 C22,2 24,-10 18,-20 C12,-30 0,-28 0,-18 Z"
-              fill="#cc0020" stroke="#ff3344" stroke-width="1.2"/>
-      </g>
-    </svg>
-  </div><!-- /heart-wrap -->
-
-  <!-- Flying arrow (travels from launcher to heart, JS-positioned) -->
-  <svg id="flyArrow" class="gate__fly"
-       viewBox="0 0 200 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <linearGradient id="flyg" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%"   stop-color="#f0cc48"/>
-        <stop offset="45%"  stop-color="#b0780a"/>
-        <stop offset="100%" stop-color="#f0cc48"/>
-      </linearGradient>
-    </defs>
-    <line x1="8" y1="16" x2="148" y2="16"
-          stroke="url(#flyg)" stroke-width="3.5" stroke-linecap="round"/>
-    <line x1="30" y1="12" x2="30" y2="20" stroke="#7a5200" stroke-width="2"/>
-    <line x1="37" y1="12" x2="37" y2="20" stroke="#7a5200" stroke-width="2"/>
-    <line x1="44" y1="12" x2="44" y2="20" stroke="#7a5200" stroke-width="2"/>
-    <path d="M8,16 L22,7 L18,16 L22,25 Z" fill="#cc0020"/>
-    <path d="M8,16 L20,10 L18,16 L20,22 Z" fill="#880012" opacity="0.75"/>
-    <path d="M148,16 L138,9 L143,16 L138,23 Z" fill="#d4a020"/>
-    <g transform="translate(157,16) scale(0.44)">
-      <path d="M0,-18 C0,-28 -12,-30 -18,-20 C-24,-10 -22,2 0,20
-               C22,2 24,-10 18,-20 C12,-30 0,-28 0,-18 Z" fill="#cc0020"/>
-    </g>
-  </svg>
-
-  <!-- Resting launcher arrow (lower-left, aimed at heart) -->
-  <div class="gate__launcher" id="arrowLauncher" aria-hidden="true">
-    <svg viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="lg1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%"   stop-color="#f0cc48"/>
-          <stop offset="45%"  stop-color="#b0780a"/>
-          <stop offset="100%" stop-color="#f0cc48"/>
-        </linearGradient>
-      </defs>
-      <line x1="28" y1="22" x2="168" y2="22"
-            stroke="url(#lg1)" stroke-width="4.5" stroke-linecap="round"/>
-      <line x1="52" y1="17" x2="52" y2="27" stroke="#7a5200" stroke-width="2.5"/>
-      <line x1="60" y1="17" x2="60" y2="27" stroke="#7a5200" stroke-width="2.5"/>
-      <line x1="68" y1="17" x2="68" y2="27" stroke="#7a5200" stroke-width="2.5"/>
-      <path d="M28,22 L44,11 L40,22 L44,33 Z" fill="#cc0020"/>
-      <path d="M28,22 L42,15 L40,22 L42,29 Z" fill="#880012" opacity="0.75"/>
-      <path d="M168,22 L156,13 L162,22 L156,31 Z"
-            fill="#d4a020" stroke="#f0cc40" stroke-width="0.8"/>
-      <g transform="translate(178,22) scale(0.5)">
-        <path d="M0,-18 C0,-28 -12,-30 -18,-20 C-24,-10 -22,2 0,20
-                 C22,2 24,-10 18,-20 C12,-30 0,-28 0,-18 Z"
-              fill="#cc0020" stroke="#ff3344" stroke-width="1.2"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- CTA text -->
-  <p class="gate__cta" id="gateCta">PIERCE THE HEART</p>
-  <p class="gate__sub">tap anywhere to enter</p>
-
-</div><!-- /gate -->
 
 
   <div class="grain"></div>
@@ -215,7 +68,8 @@
     <nav class="topbar__nav">
       <a href="#lineup">Lineup</a>
       <a href="#details">Details</a>
-      <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306href="#rsvp" class="nav-cta"dice_channel=webhref="#rsvp" class="nav-cta"dice_tags=organichref="#rsvp" class="nav-cta"dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#rsvp" class="nav-cta"dice_feature=mio_marketinghref="#rsvp" class="nav-cta"_branch_match_id=1613259506276456865href="#rsvp" class="nav-cta"utm_source=webhref="#rsvp" class="nav-cta"utm_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#rsvp" class="nav-cta"utm_medium=mio_marketinghref="#rsvp" class="nav-cta"_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S82TEo1NjNPtjQzSbGvK0pNSy0qysxLj08qyi8vTi2yDU5MSyzKBAAeaJCdOwAAAA%3D%3D" target="_blank" rel="noopener" class="nav-cta">Get In</a>
+      <button class="vip-nav-btn" id="vipNavBtn">Win VIP</button>
+      <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306&dice_channel=web&dice_tags=organic&dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+House&dice_feature=mio_marketing&utm_source=web&utm_medium=mio_marketing" target="_blank" rel="noopener" class="nav-cta">Get In</a>
     </nav>
   </header>
 
@@ -228,13 +82,10 @@
 
     <div class="hero__content">
       <p class="hero__venue">Song Byrd Music House</p>
-      <h1 class="hero__day">Saturday</h1>
-      <p class="hero__date">September <span class="accent">5</span></p>
-
       <div class="hero__divider"><span></span><i class="star">★</i><span></span></div>
 
       <p class="hero__support">Ricann <i>★</i> Danjalé <i>★</i> Yoko <i>★</i> Mundane</p>
-      <h2 class="hero__headline">Tweetsie <span class="amp">&amp;</span> Special Guest</h2>
+      <h2 class="hero__headline">Tweetsie <span class="amp">&amp;</span> Special Guest CLIP</h2>
 
       <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306href="#rsvp" class="hero__cta"dice_channel=webhref="#rsvp" class="hero__cta"dice_tags=organichref="#rsvp" class="hero__cta"dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#rsvp" class="hero__cta"dice_feature=mio_marketinghref="#rsvp" class="hero__cta"_branch_match_id=1613259506276456865href="#rsvp" class="hero__cta"utm_source=webhref="#rsvp" class="hero__cta"utm_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#rsvp" class="hero__cta"utm_medium=mio_marketinghref="#rsvp" class="hero__cta"_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S82TEo1NjNPtjQzSbGvK0pNSy0qysxLj08qyi8vTi2yDU5MSyzKBAAeaJCdOwAAAA%3D%3D" target="_blank" rel="noopener" class="hero__cta">Get Tickets</a>
     </div>
@@ -252,11 +103,64 @@
     </div>
   </section>
 
+  <!-- CLIP REVEAL -->
+  <section class="clip-reveal">
+    <div class="clip-reveal__inner">
+      <p class="clip-reveal__kicker">Special Guest</p>
+      <img src="assets/clip-promo.png" alt="CLIP — Special Guest" class="clip-reveal__img"/>
+      <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306&dice_channel=web&dice_tags=organic&dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+House&dice_feature=mio_marketing&utm_source=web&utm_medium=mio_marketing" target="_blank" rel="noopener" class="clip-reveal__cta">Get Tickets →</a>
+    </div>
+  </section>
+
+  <!-- TWEETSIE LIVE PERFORMANCE -->
+  <section class="perf-section">
+    <div class="perf-inner">
+      <p class="perf-kicker">Now Streaming</p>
+      <h2 class="perf-headline">OPEN BOOK<br><span class="perf-sub">by Tweetsie</span></h2>
+      <p class="perf-body">The song that started it all — streaming now. Listen before you see him perform it live September 5 at Songbyrd DC.</p>
+
+      <!-- Streaming links -->
+      <div class="stream-links">
+        <a href="https://music.apple.com/us/album/open-book/6787179304?i=6787179312" target="_blank" rel="noopener" class="stream-btn stream-btn--apple">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Apple Music
+        </a>
+        <a href="https://open.spotify.com/album/46QO6HVSARihCDvsyQ8SUg?si=8a1683cdb00648b9" target="_blank" rel="noopener" class="stream-btn stream-btn--spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          Spotify
+        </a>
+        <a href="https://www.youtube.com/watch?v=fyNiQqtJrJk" target="_blank" rel="noopener" class="stream-btn stream-btn--youtube">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+      <div class="perf-video-wrap">
+        <video class="perf-video" id="perfVideo" autoplay muted playsinline loop
+               preload="auto" poster="assets/hero-poster.jpg">
+          <source src="assets/tweetsie-live.mp4" type="video/mp4"/>
+        </video>
+        <button class="perf-mute-btn" id="perfMuteBtn" aria-label="Unmute video">
+          <svg id="muteIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor"/>
+            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg id="unmuteIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306&dice_channel=web&dice_tags=organic&dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+House&dice_feature=mio_marketing&utm_source=web&utm_medium=mio_marketing" target="_blank" rel="noopener" class="perf-cta">Get Tickets →</a>
+    </div>
+  </section>
+
   <section id="lineup" class="lineup">
     <h3 class="section-label">The Lineup</h3>
     <ul class="lineup__list">
       <li class="lineup__item lineup__item--headline">
-        <span class="lineup__name">Tweetsie <span class="amp">&amp;</span> Special Guest</span>
+        <span class="lineup__name">Tweetsie <span class="amp">&amp;</span> Special Guest CLIP</span>
         <span class="lineup__tag">Headline</span>
       </li>
       <li class="lineup__item"><span class="lineup__name">Ricann</span></li>
@@ -268,7 +172,7 @@
 
   <section id="details" class="details">
     <div class="details__poster">
-      <img src="assets/poster-polished.png" alt="Tweetsie & Special Guest event poster" loading="lazy" />
+      <img src="assets/poster-polished.png" alt="Tweetsie & Special Guest CLIP event poster" loading="lazy" />
     </div>
     <div class="details__copy">
       <h3 class="section-label">Details</h3>
@@ -297,7 +201,7 @@
   <section id="rsvp" class="rsvp">
     <h3 class="rsvp__title">Don't miss it.</h3>
     <p class="rsvp__sub">Saturday, September 5 &middot; Song Byrd Music House</p>
-    <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306href="#" class="rsvp__cta"dice_channel=webhref="#" class="rsvp__cta"dice_tags=organichref="#" class="rsvp__cta"dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#" class="rsvp__cta"dice_feature=mio_marketinghref="#" class="rsvp__cta"_branch_match_id=1613259506276456865href="#" class="rsvp__cta"utm_source=webhref="#" class="rsvp__cta"utm_campaign=Songbyrd+LLC+dba+Songbyrd+Music+Househref="#" class="rsvp__cta"utm_medium=mio_marketinghref="#" class="rsvp__cta"_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1S82TEo1NjNPtjQzSbGvK0pNSy0qysxLj08qyi8vTi2yDU5MSyzKBAAeaJCdOwAAAA%3D%3D" target="_blank" rel="noopener" class="rsvp__cta">Get Tickets</a>
+    <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306&dice_channel=web&dice_tags=organic&dice_campaign=Songbyrd+LLC+dba+Songbyrd+Music+House&dice_feature=mio_marketing&utm_source=web&utm_medium=mio_marketing" target="_blank" rel="noopener" class="rsvp__cta">Get Tickets</a>
   </section>
 
   <section class="iduhouse">
@@ -323,5 +227,92 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  // ── PERFORMANCE VIDEO MUTE TOGGLE ──
+  (function(){
+    const video     = document.getElementById('perfVideo');
+    const btn       = document.getElementById('perfMuteBtn');
+    const muteIcon  = document.getElementById('muteIcon');
+    const unmuteIcon= document.getElementById('unmuteIcon');
+    if(!video || !btn) return;
+    btn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteIcon.style.display   = video.muted ? 'block' : 'none';
+      unmuteIcon.style.display = video.muted ? 'none'  : 'block';
+    });
+  })();
+
+  // ── VIP POPUP ──
+  (function(){
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyllz8ORZW2d2aGwu1g7AjsTL32l-8D17ZAixiSo_ykRGBUrz0ivX3MD0I6_qATDhEb/exec';
+    const overlay  = document.getElementById('vipOverlay');
+    const closeBtn = document.getElementById('vipClose');
+    const input    = document.getElementById('vipPhone');
+    const nameInput= document.getElementById('vipName');
+    const submitBtn= document.getElementById('vipSubmit');
+    const err      = document.getElementById('vipErr');
+    const formWrap = document.getElementById('vipFormWrap');
+    const confirm  = document.getElementById('vipConfirm');
+
+    // Don't show if already entered this session
+    if(sessionStorage.getItem('vip_entered') === '1') return;
+
+    // Trigger after 39 seconds
+    setTimeout(() => overlay.classList.add('show'), 39000);
+
+    // Nav button always opens popup — resets form if already submitted
+    const navBtn = document.getElementById('vipNavBtn');
+    if(navBtn) {
+      navBtn.addEventListener('click', () => {
+        formWrap.classList.remove('hide');
+        confirm.classList.remove('show');
+        nameInput.value = '';
+        input.value = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'ENTER TO WIN →';
+        overlay.classList.add('show');
+      });
+    }
+
+    // Close on X or backdrop click
+    closeBtn.addEventListener('click', () => overlay.classList.remove('show'));
+    overlay.addEventListener('click', e => { if(e.target === overlay) overlay.classList.remove('show'); });
+
+    submitBtn.addEventListener('click', function(){
+      const name  = nameInput.value.trim();
+      const phone = input.value.trim();
+      const digits = phone.replace(/\D/g,'');
+      if(!name || digits.length < 10){
+        err.classList.add('show');
+        if(!name) nameInput.focus(); else input.focus();
+        return;
+      }
+      err.classList.remove('show');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'ENTERING…';
+
+      fetch(SHEET_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          type: 'vip_entry',
+          name: name,
+          phone: phone,
+          date: new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})
+        })
+      }).catch(()=>{});
+
+      sessionStorage.setItem('vip_entered','1');
+      formWrap.classList.add('hide');
+      confirm.classList.add('show');
+      setTimeout(() => overlay.classList.remove('show'), 3200);
+    });
+
+    input.addEventListener('input', () => err.classList.remove('show'));
+    nameInput.addEventListener('input', () => err.classList.remove('show'));
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') submitBtn.click(); });
+    nameInput.addEventListener('keydown', e => { if(e.key === 'Enter') input.focus(); });
+  })();
+  </script>
 </body>
 </html>
