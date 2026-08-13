@@ -24,6 +24,20 @@
 </head>
 <body>
 
+<!-- ── ENTRY GATE ── -->
+<div class="entry-gate" id="entryGate">
+  <p class="entry-gate__brand">Knarli Hearts <span>Presents</span></p>
+  <div class="entry-gate__cupid-wrap">
+    <img src="assets/cupid.png" alt="" class="entry-gate__cupid"/>
+    <div class="entry-gate__heart-glow"></div>
+  </div>
+  <div class="entry-gate__event">
+    <h1 class="entry-gate__title">TWEETSIE <span>&amp;</span> CLIP</h1>
+    <p class="entry-gate__details">September 5 &nbsp;·&nbsp; Songbyrd DC &nbsp;·&nbsp; All Ages</p>
+  </div>
+  <p class="entry-gate__cta">Tap to Enter</p>
+</div>
+
 <!-- VIP GIVEAWAY POPUP -->
 <div class="vip-overlay" id="vipOverlay">
   <div class="vip-box">
@@ -228,6 +242,23 @@
 
   <script src="script.js"></script>
   <script>
+  // ── ENTRY GATE ──
+  (function(){
+    const gate = document.getElementById('entryGate');
+    if(!gate) return;
+    document.body.style.overflow = 'hidden';
+    let entered = false;
+    function enter(){
+      if(entered) return;
+      entered = true;
+      gate.classList.add('exit');
+      document.body.style.overflow = '';
+      setTimeout(() => gate.remove(), 950);
+    }
+    gate.addEventListener('click', enter);
+    gate.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') enter(); });
+  })();
+
   // ── PERFORMANCE VIDEO MUTE TOGGLE ──
   (function(){
     const video     = document.getElementById('perfVideo');

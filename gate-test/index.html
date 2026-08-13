@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Knarli Hearts Presents — Sept 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ width:100%; height:100%; overflow:hidden; background:#000; }
+
+  /* ── GATE ── */
+  .gate{
+    position:fixed; inset:0; z-index:100;
+    background:#000;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition: opacity .9s cubic-bezier(.4,0,1,1);
+  }
+  .gate.exit{ opacity:0; pointer-events:none; }
+
+  /* Grain overlay */
+  .gate::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    opacity:.055; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 1s steps(4) infinite;
+  }
+  @keyframes grain{
+    0%,100%{transform:translate(0,0)}
+    25%{transform:translate(-2%,1%)}
+    50%{transform:translate(1%,-2%)}
+    75%{transform:translate(-1%,2%)}
+  }
+
+  /* Top branding */
+  .gate__brand{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(11px,2vw,15px);
+    letter-spacing:.32em; text-transform:uppercase;
+    color:rgba(236,231,226,.45);
+    position:absolute; top:28px; left:50%; transform:translateX(-50%);
+    white-space:nowrap;
+  }
+  .gate__brand span{ color:#e30f2e; }
+
+  /* Cupid image — floats */
+  .gate__cupid-wrap{
+    position:relative;
+    width:min(520px, 88vw);
+    animation: float 4.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 40px rgba(180,20,120,.35))
+            drop-shadow(0 0 90px rgba(180,20,120,.15));
+  }
+  @keyframes float{
+    0%,100%{ transform:translateY(0px) rotate(-.5deg); }
+    50%    { transform:translateY(-22px) rotate(.5deg); }
+  }
+  .gate__cupid{
+    width:100%; display:block;
+  }
+
+  /* Heart glow pulse on the image — overlay element */
+  .gate__heart-glow{
+    position:absolute;
+    width:38%; padding-bottom:38%;
+    top:38%; left:44%;
+    border-radius:50%;
+    background:radial-gradient(ellipse, rgba(220,30,120,.7) 0%, rgba(180,0,80,.3) 40%, transparent 70%);
+    animation:heartbeat 1.6s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes heartbeat{
+    0%,100%{ transform:scale(1);   opacity:.7; }
+    25%    { transform:scale(1.18);opacity:1;  }
+    40%    { transform:scale(.96); opacity:.7; }
+    55%    { transform:scale(1.1); opacity:.9; }
+  }
+
+  /* Event info below cupid */
+  .gate__event{
+    text-align:center;
+    margin-top:-8px;
+    position:relative; z-index:2;
+  }
+  .gate__title{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(38px,9vw,80px);
+    line-height:.88; letter-spacing:.02em;
+    color:#fff;
+    text-shadow: 0 0 60px rgba(220,30,120,.4);
+  }
+  .gate__title .amp{ color:#e30f2e; }
+  .gate__details{
+    font-family:'Oswald',sans-serif;
+    font-size:clamp(11px,1.8vw,14px);
+    letter-spacing:.3em; text-transform:uppercase;
+    color:rgba(236,231,226,.4);
+    margin-top:10px;
+  }
+
+  /* CTA pulse */
+  .gate__cta{
+    font-family:'Oswald',sans-serif;
+    font-size:clamp(10px,1.6vw,13px);
+    letter-spacing:.4em; text-transform:uppercase;
+    color:rgba(236,231,226,.35);
+    margin-top:28px;
+    animation:ctablink 2.2s ease-in-out infinite;
+  }
+  @keyframes ctablink{
+    0%,100%{ opacity:.35; }
+    50%    { opacity:.9;  }
+  }
+
+  /* ── SITE (hidden until gate exits) ── */
+  .site{
+    position:fixed; inset:0; z-index:1;
+    opacity:0; transform:scale(1.04);
+    transition: opacity .9s .15s ease, transform .9s .15s cubic-bezier(.16,1,.3,1);
+    pointer-events:none;
+    background:#060506;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .site.show{
+    opacity:1; transform:scale(1);
+    pointer-events:auto;
+  }
+  .site__msg{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(28px,6vw,52px);
+    letter-spacing:.06em; color:#ece7e2;
+    text-align:center;
+  }
+  .site__msg span{ color:#e30f2e; }
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div class="gate" id="gate">
+  <p class="gate__brand">Knarli Hearts <span>Presents</span></p>
+
+  <div class="gate__cupid-wrap">
+    <img src="cupid.png" alt="" class="gate__cupid"/>
+    <div class="gate__heart-glow"></div>
+  </div>
+
+  <div class="gate__event">
+    <h1 class="gate__title">TWEETSIE <span class="amp">&amp;</span> CLIP</h1>
+    <p class="gate__details">September 5 &nbsp;·&nbsp; Songbyrd DC &nbsp;·&nbsp; All Ages</p>
+  </div>
+
+  <p class="gate__cta">Tap to Enter</p>
+</div>
+
+<!-- SITE (swap this iframe src with events/index.html when ready to integrate) -->
+<div class="site" id="site">
+  <p class="site__msg">YOU'RE IN.<br><span>Sept 5 · Songbyrd DC</span></p>
+</div>
+
+<script>
+  const gate = document.getElementById('gate');
+  const site = document.getElementById('site');
+  let entered = false;
+
+  function enter() {
+    if (entered) return;
+    entered = true;
+    gate.classList.add('exit');
+    site.classList.add('show');
+    // When integrating: replace site div with actual page redirect
+    // setTimeout(() => window.location.href = '../events/', 600);
+  }
+
+  gate.addEventListener('click', enter);
+  gate.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') enter();
+  });
+</script>
+</body>
+</html>
