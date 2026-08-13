@@ -672,7 +672,7 @@ body {
   text-align: center;
   border-bottom: 1px solid rgba(236,231,226,.06);
 }
-.perf-inner { max-width: 720px; margin: 0 auto; }
+.perf-inner { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
 .perf-kicker {
   font-size: 10px; letter-spacing: .4em; text-transform: uppercase;
   color: var(--red); margin-bottom: 12px;
@@ -701,6 +701,7 @@ body {
   background: #000;
   overflow: hidden;
   aspect-ratio: 9/16;
+  align-self: center;
 }
 .perf-video {
   width: 100%; height: 100%; display: block;
