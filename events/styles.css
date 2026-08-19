@@ -440,6 +440,14 @@ body {
   font-size: clamp(17px, 2.4vw, 22px);
   letter-spacing: 0.01em;
 }
+.details__link {
+  color: var(--bone);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(236,231,226,.25);
+  transition: color .2s, border-color .2s;
+}
+.details__link:hover { color: var(--red); border-bottom-color: var(--red); }
+
 .details__cta, .rsvp__cta {
   display: inline-block;
   padding: 16px 40px;
