@@ -391,8 +391,13 @@ body {
   font-size: clamp(24px, 5vw, 46px);
   letter-spacing: 0.01em;
   transition: color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
+.lineup__name:hover { color: var(--red); }
 .lineup__item--headline .lineup__name { color: var(--bone); }
+.lineup__amp { color: var(--red); font-family: var(--display); font-size: clamp(24px,5vw,46px); margin: 0 6px; }
+.lineup__role { font-family: var(--body); font-size: 13px; letter-spacing: .2em; color: var(--bone-dim); text-transform: uppercase; }
 .lineup__tag {
   font-size: 11px;
   letter-spacing: 0.25em;
