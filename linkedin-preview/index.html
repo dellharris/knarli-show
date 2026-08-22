@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dell Harris — LinkedIn Post Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    background:#f3f2ef;
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:24px 16px 60px;
+  }
+
+  /* ── PLATFORM BAR ── */
+  .platform-bar{
+    max-width:600px; margin:0 auto 20px;
+    display:flex; gap:12px;
+  }
+  .platform-btn{
+    padding:8px 20px; border-radius:50px; border:2px solid transparent;
+    font-size:13px; font-weight:600; cursor:pointer;
+    transition:all .2s;
+  }
+  .platform-btn.active-li{
+    background:#0a66c2; color:#fff; border-color:#0a66c2;
+  }
+  .platform-btn.active-fb{
+    background:#1877f2; color:#fff; border-color:#1877f2;
+  }
+  .platform-btn.inactive{
+    background:#fff; color:#666; border-color:#ddd;
+  }
+  .platform-btn.inactive:hover{ border-color:#999; color:#333; }
+
+  /* ── CARD ── */
+  .card{
+    max-width:600px; margin:0 auto;
+    background:#fff;
+    border-radius:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    overflow:hidden;
+  }
+
+  /* ── HEADER ── */
+  .post-header{
+    display:flex; align-items:flex-start; gap:12px;
+    padding:16px 16px 0;
+  }
+  .avatar{
+    width:48px; height:48px; border-radius:50%;
+    object-fit:cover; flex-shrink:0;
+    border:2px solid #e0e0e0;
+  }
+  .post-meta{ flex:1; }
+  .post-name{
+    font-size:15px; font-weight:600; color:#000e1a;
+    line-height:1.3;
+  }
+  .post-title{
+    font-size:13px; color:#666;
+    line-height:1.4; margin-top:1px;
+  }
+  .post-time{
+    font-size:12px; color:#999; margin-top:2px;
+    display:flex; align-items:center; gap:4px;
+  }
+  .post-time svg{ opacity:.5; }
+  .more-btn{
+    background:none; border:none; cursor:pointer;
+    color:#666; font-size:20px; line-height:1;
+    padding:4px; flex-shrink:0;
+  }
+
+  /* ── BODY ── */
+  .post-body{
+    padding:12px 16px 14px;
+    font-size:14px; color:#191919;
+    line-height:1.6;
+    white-space:pre-wrap;
+  }
+  .post-body .hook{
+    font-size:16px; font-weight:700; color:#000;
+    display:block; margin-bottom:14px;
+  }
+  .post-body .section-title{
+    font-weight:700; display:block; margin-top:14px; margin-bottom:2px;
+  }
+  .post-body .hashtags{
+    color:#0a66c2; margin-top:14px; display:block;
+    font-size:13px; line-height:1.8;
+  }
+  .post-body .cta-link{
+    color:#0a66c2; font-weight:600; text-decoration:none;
+  }
+  .post-body .stat-line{
+    background:#f8f8f8; border-left:3px solid #0a66c2;
+    padding:10px 14px; margin:14px 0;
+    font-weight:700; font-size:15px; color:#000;
+    border-radius:0 6px 6px 0;
+  }
+
+  /* ── POST IMAGE ── */
+  .post-image{
+    width:100%; display:block;
+    object-fit:cover;
+    max-height:560px;
+    cursor:pointer;
+  }
+
+  /* ── REACTIONS ── */
+  .reactions{
+    padding:8px 16px;
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:1px solid #e8e8e8;
+  }
+  .reaction-icons{ display:flex; align-items:center; gap:4px; font-size:13px; color:#666; }
+  .reaction-emoji{ font-size:16px; }
+  .reaction-count{ font-size:13px; color:#666; }
+  .comment-count{ font-size:13px; color:#666; }
+
+  /* ── ACTIONS ── */
+  .post-actions{
+    display:flex; padding:4px 8px;
+    border-bottom:1px solid #e8e8e8;
+  }
+  .action-btn{
+    flex:1; display:flex; align-items:center; justify-content:center;
+    gap:6px; padding:10px 8px;
+    background:none; border:none; cursor:pointer;
+    font-size:13px; font-weight:600; color:#666;
+    border-radius:4px; transition:background .15s;
+  }
+  .action-btn:hover{ background:#f3f2ef; color:#333; }
+  .action-btn svg{ flex-shrink:0; }
+
+  /* ── COMMENT BOX ── */
+  .comment-area{
+    padding:12px 16px;
+    display:flex; gap:10px; align-items:center;
+  }
+  .comment-avatar{
+    width:36px; height:36px; border-radius:50%;
+    object-fit:cover; flex-shrink:0;
+  }
+  .comment-input{
+    flex:1; background:#f3f2ef; border:none; border-radius:18px;
+    padding:8px 16px; font-size:14px; color:#999;
+    font-family:'Inter',sans-serif; cursor:text;
+    outline:none;
+  }
+
+  /* ── FLYER COMMENT ── */
+  .flyer-comment{
+    padding:0 16px 16px;
+    display:flex; gap:10px;
+  }
+  .flyer-avatar{
+    width:36px; height:36px; border-radius:50%;
+    object-fit:cover; flex-shrink:0; align-self:flex-start;
+  }
+  .flyer-bubble{
+    flex:1; background:#f3f2ef;
+    border-radius:0 12px 12px 12px;
+    overflow:hidden;
+  }
+  .flyer-bubble-header{
+    padding:8px 12px 4px;
+    font-size:13px; font-weight:600; color:#000;
+  }
+  .flyer-bubble-header span{
+    font-weight:400; color:#666; margin-left:6px;
+  }
+  .flyer-img{
+    width:100%; display:block;
+    max-height:320px; object-fit:cover;
+  }
+  .flyer-link{
+    display:block; padding:8px 12px;
+    font-size:12px; color:#0a66c2; text-decoration:none;
+  }
+
+  /* ── FB MODE ── */
+  body.fb-mode{ background:#f0f2f5; }
+  body.fb-mode .card{ border-radius:12px; }
+  body.fb-mode .post-name{ color:#050505; }
+  body.fb-mode .post-body .hashtags{ color:#1877f2; }
+  body.fb-mode .post-body .cta-link{ color:#1877f2; }
+  body.fb-mode .post-body .stat-line{ border-color:#1877f2; }
+  body.fb-mode .action-btn:hover{ background:#e4e6eb; }
+  body.fb-mode .comment-input{ background:#e4e6eb; }
+  body.fb-mode .flyer-bubble{ background:#e4e6eb; }
+
+  /* ── FOOTER ── */
+  .preview-note{
+    max-width:600px; margin:16px auto 0;
+    font-size:12px; color:#999; text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<!-- Platform toggle -->
+<div class="platform-bar">
+  <button class="platform-btn active-li" id="liBtn" onclick="setMode('li')">LinkedIn</button>
+  <button class="platform-btn inactive" id="fbBtn" onclick="setMode('fb')">Facebook</button>
+</div>
+
+<!-- Post card -->
+<div class="card">
+
+  <!-- Header -->
+  <div class="post-header">
+    <img src="dell.jpg" alt="Dell Harris" class="avatar"/>
+    <div class="post-meta">
+      <div class="post-name">Dell Harris</div>
+      <div class="post-title">Founder, Idu House &nbsp;·&nbsp; Creator Services &nbsp;·&nbsp; Music Tech</div>
+      <div class="post-time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+        Just now &nbsp;·&nbsp;
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="#666"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+    </div>
+    <button class="more-btn">···</button>
+  </div>
+
+  <!-- Post text -->
+  <div class="post-body"><span class="hook">I hate when I can't close the deal.
+So I built a system that closes it for me.</span>On September 5, Knarli Hearts is bringing Tweetsie and CLIP to Songbyrd Music House in Washington DC. Eight artists. A merch activation. A live music video shoot. A VIP meet and greet giveaway.
+
+From the outside it looks like a concert. From the inside it is a fully engineered partnership.
+
+At Idu House we built the entire infrastructure behind this event from scratch. The artist received a code gated offer site where they could preview an unreleased track, review deal terms, sign digitally and submit payment information all in one session. No PDFs. No back and forth emails. No delays. The moment they signed the data went straight into a live spreadsheet.
+
+The fan side is just as intentional. The event site captures VIP contest entries connected to a live database, streaming links push fans directly to Apple Music and Spotify, and every ticket click is tracked with full attribution.
+
+Here is exactly what we built and what we used to build it. The entire stack is serverless and deploys in minutes.
+<span class="section-title">Deal Infrastructure</span>Canvas API for digital signatures. Google Apps Script as a zero cost backend. Google Sheets as a live database. Code gated pages using sessionStorage so only the right artist sees the offer.
+<span class="section-title">Fan Activation</span>HTML5 video with custom autoplay and mute controls. CSS keyframe animations for the entry gate experience. Vanilla JavaScript for all interactivity. No frameworks. No dependencies.
+<span class="section-title">Distribution Pipeline</span>Bandsintown as the single point of entry that cascades to Spotify On Tour and Apple Music Upcoming Events automatically within 48 hours. DICE for ticketing with full UTM attribution tracking every click back to the source.
+<span class="section-title">Hosting and Infrastructure</span>GitHub Pages with a custom subdomain via CNAME. Python and Pillow for asset processing including background removal and image grading. AAC audio conversion from raw WAV for optimized web delivery.
+<div class="stat-line">Total cost to run this infrastructure: $0 per month.</div>That is the point. Independent artists and promoters do not need enterprise budgets to have enterprise systems. They need the right builder.
+
+This is what creator services looks like in 2026. We do not just build websites. We build the systems that close deals, grow audiences and protect artist time.
+
+If you are an independent artist, manager or promoter who wants this level of infrastructure behind your next project, we want to talk.
+
+🔗 <a href="https://www.iduhouse.com/creator-services" class="cta-link" target="_blank">iduhouse.com/creator-services</a>
+<span class="hashtags">#IndependentArtist #MusicTech #CreatorEconomy #BlackCreatives #MusicIndustry #ArtistManagement #WashingtonDC #IduHouse</span></div>
+
+  <!-- Post photo -->
+  <img src="dell.jpg" alt="Dell Harris" class="post-image"/>
+
+  <!-- Reactions -->
+  <div class="reactions">
+    <div class="reaction-icons">
+      <span class="reaction-emoji">👍</span>
+      <span class="reaction-emoji">❤️</span>
+      <span class="reaction-emoji">🔥</span>
+      <span class="reaction-count">47</span>
+    </div>
+    <div class="comment-count">12 comments &nbsp;·&nbsp; 8 reposts</div>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="post-actions">
+    <button class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4l4-4h5l4-4V8zm-8 5H9v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+      Like
+    </button>
+    <button class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+      Comment
+    </button>
+    <button class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+      Repost
+    </button>
+    <button class="action-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      Send
+    </button>
+  </div>
+
+  <!-- Comment input -->
+  <div class="comment-area">
+    <img src="dell.jpg" alt="" class="comment-avatar"/>
+    <div class="comment-input">Add a comment…</div>
+  </div>
+
+  <!-- Flyer as first comment -->
+  <div class="flyer-comment">
+    <img src="dell.jpg" alt="" class="flyer-avatar"/>
+    <div class="flyer-bubble">
+      <div class="flyer-bubble-header">Dell Harris <span>· just now</span></div>
+      <img src="lineup.png" alt="Knarli Hearts Full Lineup" class="flyer-img"/>
+      <a href="https://dice.fm/partner/tickets/event/7dxla9-knarli-hearts-x-livemixtapes-x-moreparties-dc-presents-knarli-bash-ft-tweetsie-5th-sep-songbyrd-washington-dc-tickets?dice_id=10097306&dice_channel=web&dice_tags=organic" target="_blank" class="flyer-link">🎟 Get Tickets → dice.fm</a>
+    </div>
+  </div>
+
+</div>
+
+<p class="preview-note">Preview only · Not a real LinkedIn page · Idu House Internal</p>
+
+<script>
+function setMode(mode){
+  const body = document.body;
+  const liBtn = document.getElementById('liBtn');
+  const fbBtn = document.getElementById('fbBtn');
+  if(mode === 'fb'){
+    body.classList.add('fb-mode');
+    liBtn.className = 'platform-btn inactive';
+    fbBtn.className = 'platform-btn active-fb';
+  } else {
+    body.classList.remove('fb-mode');
+    liBtn.className = 'platform-btn active-li';
+    fbBtn.className = 'platform-btn inactive';
+  }
+}
+</script>
+</body>
+</html>
